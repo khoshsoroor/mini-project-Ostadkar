@@ -4,7 +4,7 @@ from aloe import step, world, before
 @before.all
 def clear(*args):
     world.cred = dict()
-
+########login scenario#######################
 @step(r'send my "(username|password)" with "(.*)"')
 def get_username_from_feature_file(self, key, value):
     world.cred.update({key: value})
@@ -18,9 +18,7 @@ def call_login_api_with_credentials(self):
 def check_status_code(self):
     assert world.cred['result'] == 200
 
-
-
-
+################check starring repository scenario################
 @step(r'send "(owner|repo)" as "(.*)"')
 def get_repo_info( self, key , value):
     world.cred.update({key: value})
@@ -38,6 +36,7 @@ def check_response_star(self):
 
 
 
+#########check collaborator scenario
 @step(r'send "(collabo)" as "(.*)"')
 def get_info(self, key , value):
     world.cred.update({key: value})

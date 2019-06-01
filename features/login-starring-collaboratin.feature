@@ -1,5 +1,7 @@
 Feature: login
 I want to login to my github
+and check if a repo is starring
+  and check repo collaborators
 
 Scenario: login to github
   Given send my "username" with "mahsa.khoshsoroor@gmail.com"
@@ -9,13 +11,13 @@ Scenario: login to github
 
 
 Scenario: starring a repository
-  Given send "owner" as "aloetesting"
-  And send "repo" as "aloe"
+  Given send "owner" as "khoshsoroor"
+  And send "repo" as "mini-project-Ostadkar"
   Then Call starring repo api
   And check Response if this repository is starred
 
 Scenario: collaborator repository
-  Given send "collabo" as "koterpillar"
+  Given send "collabo" as "Farahzadi"
   Then Call collaborate api
   And Response if user is a collaborator
 
